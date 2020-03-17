@@ -97,6 +97,10 @@ function! s:RootDirectory()
 endfunction
 
 function! s:CdToProjectRoot()
+	if !filereadable(expand('%'))
+		return
+	endif
+
 	let root = s:RootDirectory()
 	if empty(root)
 		if g:rooter_change_directory_for_non_project_files ==? 'current'

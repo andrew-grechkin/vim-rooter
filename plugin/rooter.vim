@@ -78,7 +78,7 @@ function! s:SearchForRootDirectory(cwd)
 	let root = ''
 	for pattern in g:rooter_patterns
 		let result = s:FindAncestor(a:cwd, pattern)
-		if len(result) > len(root) && result != '/' && empty(matchstr(result, '\/t\/lib\/'))
+		if len(result) > len(root) && result != '/' && empty(matchstr(result, '\/t$'))
 			let root = result
 		endif
 	endfor
